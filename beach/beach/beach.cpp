@@ -14,6 +14,10 @@ int main() {
 	string inventory[4];
 	for (int i = 0; i < 4; i++)
 		inventory[i] = "";
+	cout << "welcome to The Dreamscape! in this game you progress through the dream of your average everyday gamer." << endl << endl;
+	system("pause");
+	cout << "if there is any mention of any items type take. This game only reads lower case commands." << endl << endl;
+	system("pause");
 	while (file != 'q') {
 		switch (room) {
 		case 1:
@@ -41,7 +45,7 @@ int main() {
 		case 2:
 			cout << "you find yourself in a tall, dence forest." << endl << endl;
 			cout << "below you bugs crawl and birds hunt. The smell of oak leafs and cedar bark contaminate the area." << endl; 
-				cout << "To the north is a clearing.To the west lies more forest." << endl << endl;
+			cout << "To the north is a clearing.To the west lies more forest and to the south is where you woke up." << endl << endl;
 			cout << "Go where? South, North or West." << endl;
 			getline(cin, input);
 			if (input.compare("go south") == 0)
@@ -56,8 +60,13 @@ int main() {
 
 
 		case 3:
-			file = 'q';
-			cout << "As you walk toward the ocean a giant sharktapus grabs you and pulls you under." << endl << endl << endl;
+			cout << "A lone merchant lies in wait. He tells you he wants a Golden feather." << endl << endl;
+			getline(cin, input);
+			if (input.compare("give") == 0) {
+				cout << "You give him the golden feather" << endl << endl;
+				cout << "You got a head in exchange!.......ew" << endl << endl;
+				inventory[4] = "Bendy's Head";
+			}
 			break;
 
 
@@ -73,7 +82,7 @@ int main() {
 				room = 6;
 			else if (input.compare("investigate")==0) {
 				cout << "you find a new looking gumball machine and turn the handle." << endl << endl;
-					candy();			
+					candy();
 			}// if statement
 
 			else
@@ -83,24 +92,29 @@ int main() {
 
 		case 5:
 			cout << "You come across a clearing in the forest." << endl << endl << endl;
+			cout << "In the center of the clearing lies a sword in a bonfire." << endl << endl;
 			cout << "there seems to be a small structure in the distance, but your not sure." << endl;
 			cout << "Go where? East, North or South" << endl;
 			getline(cin, input);
-			if (input.compare("go east")==0)
+			if (input.compare("go east") == 0)
 				room = 10;
-			else if (input.compare("go north")==0)
+			else if (input.compare("go north") == 0)
 				room = 7;
-			else if (input.compare("go south")==0)
+			else if (input.compare("go south") == 0)
 				room = 2;
+			else if (input.compare("take") == 0) {
+				cout << "The word Firelink is etched on the hilt of the sword" << endl << endl;
+				system("pause");
+				cout << "obtained Firelink sword!" << endl << endl;
+				inventory[1] = "Firelink sword";
+			}
 			else
-				cout << "you sit there and try to remeber how you ended up on this island. for some reason you start to cry." << endl;
+				cout << "you sit there and try to remeber how you ended up on this island. for some reason you start to cry.(not a command)" << endl;
 			break;
 
 
 		case 6:
 			cout << "as you wander the beach you come across a glass looking orb." << endl;
-			if (Bendyshead == 1)
-				room = 11;
 			cout << "Go where? East, North or Examine orb" << endl;
 			getline(cin, input);
 			if (input.compare("go east")==0)
@@ -108,7 +122,7 @@ int main() {
 			else if (input.compare("go north")==0)
 				room = 9;
 			else if (input.compare("examine orb")==0) {
-				if (Bendyshead >= 1)
+				if (inventory[4].compare("Bendy's Head")==0)
 					room = 11;
 				else
 					cout << "you just stare into the glossy orb" << endl << endl;
@@ -148,15 +162,22 @@ int main() {
 			else if (input.compare("search")==0)
 				cout << "You find nothing while searching the forest" << endl << endl;
 			else if (input.compare("go north") == 0) {
-				cout << "You encountered a wild, rabid chocobo!" << endl;
+				cout << "You encountered a wild, hungry chocobo!" << endl;
 				getline(cin, input);
-				if (input.compare("go back") == 0) {
+				if (input.compare("go back") == 0) 
 					cout << "you managed to escape" << endl << endl;
+				else if (input.compare("feed") == 0) {
+					if (inventory[2].compare("Bear meat") == 0) {
+						cout << "the wild chocobo ate the bear meat and gave you its feather." << endl << endl;
+						cout << "obtained Golden feather!" << endl << endl;
+						inventory[3] = "Golden feather";
+					}
+					else {
+						cout << "The chocobo had YOU for dinner!" << endl;
+						file = 'q';
+					}
 				}
-				else {
-					cout << "The rabid beast swallowed you in one gulp" << endl;
-					file = 'q';
-				}
+
 			}
 			break;
 
@@ -168,6 +189,20 @@ int main() {
 
 		case 10:
 			cout << "Upon going east you find youslef in a bear cave." << endl << endl;
+			cout << "The smell of blood and rotten meat is present." << endl << endl;
+			cout << "A wild bear appears!" << endl << endl;
+			cout << "what do you do?" << endl;
+			getline(cin, input);
+			if (input.compare("fight")==0){
+				if (inventory[1].compare("Firelink sword") == 0) {
+					cout << "you managed to fell the mighty beast" << endl << endl;
+					cout << "you got bear meat!" << endl << endl;
+					inventory[2] = "Bear meat";
+				}
+				else
+					cout << "The bear ate whole" << endl << endl;
+				file = 'q';
+			}
 			cout << "The bear, without hesitation, mauls you to death" << endl;
 			file = 'q';
 			break;
