@@ -6,7 +6,7 @@
 using namespace std;
 char file = 'a';
 void candy();//declaration
-int Bendyshead = 0;
+int ink = 0;
 int main() {
 	srand(time(NULL));
 	int room = 12;
@@ -63,9 +63,13 @@ int main() {
 			cout << "A lone merchant lies in wait. He tells you he wants a Golden feather." << endl << endl;
 			getline(cin, input);
 			if (input.compare("give") == 0) {
-				cout << "You give him the golden feather" << endl << endl;
-				cout << "You got a head in exchange!.......ew" << endl << endl;
-				inventory[4] = "Bendy's Head";
+				if (inventory[3].compare("Golden feather") == 0) {
+					cout << "You give him the golden feather" << endl << endl;
+					cout << "You got a head in exchange!.......ew" << endl << endl;
+					inventory[4] = "Bendy's Head";
+				}
+				else
+					cout << "you have nothing to give, stupid!" << endl << endl;
 			}
 			break;
 
@@ -78,7 +82,7 @@ int main() {
 				room = 1;
 			else if (input.compare("go north")==0)
 				room = 8;
-			else if (input.compare("go west")==0)
+			else if (input.compare("go likwest")==0)
 				room = 6;
 			else if (input.compare("investigate")==0) {
 				cout << "you find a new looking gumball machine and turn the handle." << endl << endl;
@@ -144,27 +148,27 @@ int main() {
 				room = 5;
 			}
 			else
-				cout << "you both stand there, staring, Doing nothing." << endl;
+				cout << "you both stand there, staring, Doing nothing.(not a command)" << endl;
 				break;
 
 
 		case 8:
 			cout << "You decide to walk into more forest." << endl << endl;
-			cout << "As you continue to walk you see what looks like a charizard flying overhead." << endl << endl;
+			cout << "As you continue to walk you see what looks like a Rathalos flying overhead." << endl << endl;
 			cout << "Go where? South, East, West or Search." << endl;
 			getline(cin, input);
-			if (input.compare("go south")==0)
+			if (input.compare("go south") == 0)
 				room = 4;
-			else if (input.compare("go east")==0)
+			else if (input.compare("go east") == 0)
 				room = 2;
-			else if (input.compare("go west")==0)
+			else if (input.compare("go west") == 0)
 				room = 9;
-			else if (input.compare("search")==0)
+			else if (input.compare("search") == 0)
 				cout << "You find nothing while searching the forest" << endl << endl;
 			else if (input.compare("go north") == 0) {
 				cout << "You encountered a wild, hungry chocobo!" << endl;
 				getline(cin, input);
-				if (input.compare("go back") == 0) 
+				if (input.compare("go back") == 0)
 					cout << "you managed to escape" << endl << endl;
 				else if (input.compare("feed") == 0) {
 					if (inventory[2].compare("Bear meat") == 0) {
@@ -179,6 +183,8 @@ int main() {
 				}
 
 			}
+			else
+				cout << "i dont understand." << endl;
 			break;
 
 
@@ -259,9 +265,9 @@ void candy() {// definition
 		system("pause");
 	}// if statment
 	if (number > 80 && number < 101) {
-		cout << "you got a compass pointing to a nearby ink pile" << endl << endl;
-		cout << "Obtained Bendy's Head!" << endl << endl;
-		Bendyshead++;
+		cout << "you got a black gumball" << endl << endl;
+		cout << "it tasts like ink......ew" << endl << endl;
+		ink++;
 		system("pause");
 	}//if statment
 }//end of definition
