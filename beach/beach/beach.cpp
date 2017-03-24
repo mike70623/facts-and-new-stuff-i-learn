@@ -189,8 +189,12 @@ int main() {
 
 
 		case 9:
-			cout << "A giant crab emerges from the water and snips you in half." << endl;
-			file = 'q';
+			if (ink >= 1)
+				room = 13;
+			else {
+				cout << "A giant crab emerges from the water and snips you in half." << endl;
+				file = 'q';
+			}
 			break;
 
 		case 10:
@@ -242,6 +246,13 @@ int main() {
 			cout << "as you get ready to leave you realize you have insane dreams" << endl;
 			system("pause");
 			file = 'q';
+			break;
+		case 13:
+			cout << "Pain is a funny feeling , right?" << endl << endl;
+			system("pause");
+			cout << "We go through our days thinking were over it..." << endl << endl;
+			system("pause");
+			cout << "But we always end up hurting at the end of the day. Why?" << endl << endl;
 			break;
 		}//switch
 	}//while
