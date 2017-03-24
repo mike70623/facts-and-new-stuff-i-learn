@@ -9,7 +9,7 @@ void candy();//declaration
 int ink = 0;
 int main() {
 	srand(time(NULL));
-	int room = 12;
+	int room = 1;
 	string input;
 	string inventory[4];
 	for (int i = 0; i < 4; i++)
@@ -45,7 +45,7 @@ int main() {
 		case 2:
 			cout << "you find yourself in a tall, dence forest." << endl << endl;
 			cout << "below you bugs crawl and birds hunt. The smell of oak leafs and cedar bark contaminate the area." << endl; 
-			cout << "To the north is a clearing.To the west lies more forest and to the south is where you woke up." << endl << endl;
+			cout << "To the north is a clearing,To the west lies more forest and to the south is where you woke up." << endl << endl;
 			cout << "Go where? South, North or West." << endl;
 			getline(cin, input);
 			if (input.compare("go south") == 0)
