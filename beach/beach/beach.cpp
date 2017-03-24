@@ -82,7 +82,7 @@ int main() {
 				room = 1;
 			else if (input.compare("go north")==0)
 				room = 8;
-			else if (input.compare("go likwest")==0)
+			else if (input.compare("go west")==0)
 				room = 6;
 			else if (input.compare("investigate")==0) {
 				cout << "you find a new looking gumball machine and turn the handle." << endl << endl;
@@ -210,7 +210,7 @@ int main() {
 					inventory[2] = "Bear meat";
 				}
 				else
-					cout << "The bear ate whole" << endl << endl;
+					cout << "The bear ate you whole" << endl << endl;
 				file = 'q';
 			}
 			cout << "The bear, without hesitation, mauls you to death" << endl;
@@ -253,6 +253,7 @@ int main() {
 			cout << "We go through our days thinking were over it..." << endl << endl;
 			system("pause");
 			cout << "But we always end up hurting at the end of the day. Why?" << endl << endl;
+			file = 'q';
 			break;
 		}//switch
 	}//while
